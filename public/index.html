@@ -23,11 +23,11 @@
 
                 $("#message").hide();
 
-                var OrderId = $("#OrderId").val();
-                var OrderStatus = $("#OrderStatus").val();
+                var OrderNumber = $("#OrderNumber").val();
+                var Warna__c = $("#Warna__c").val();
                 
 
-                if (OrderNumber.length == 0 || OrderStatus.length == 0) {
+                if (OrderNumber.length == 0 || Warna__c.length == 0) {
                     errorMessage.text("All of the fields are required.");
                     error.show();
                 }
@@ -43,7 +43,7 @@
                         dataType: "json",
                         success: function(data) {
                             $("#OrderNumber").val("");
-                            $("#OrderStatus").val("");
+                            $("#Warna__c").val("");
                             $("#messageMessage").text("Status updated!");
                             $("#message").show();
                         },
@@ -76,7 +76,7 @@
                 <div class="panel-body">
                     <div class="form-group">
                         <label for="OrderNumber">Order Id</label>
-                        <input type="text" class="form-control" id="OrderId" placeholder="For verification" required>
+                        <input type="text" class="form-control" id="OrderNumber" placeholder="For verification" required>
                     </div>
                     <!--<div class="form-group">
                         <label for="lastName">Last Name</label>
@@ -84,7 +84,7 @@
                     </div>-->
                     <div class="form-group">
                         <label for="OrderStatus">Order Status</label>
-                        <input type="text" class="form-control" id="OrderStatus" placeholder="Input The new Order Status" required>
+                        <input type="text" class="form-control" id="Warna__c" placeholder="Input The new Order Status" required>
                     </div>
                     <!--<div>
                     <label for="OrderStatus">New Order Status</label>
