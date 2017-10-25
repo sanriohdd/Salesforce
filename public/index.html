@@ -86,7 +86,7 @@
                         <label for="OrderStatus">Order Status</label>
                         <input type="text" class="form-control" id="Warna__c" placeholder="Input The new Order Status" required>
                     </div> -->
-                    <div>
+<!--                     <div>
                     <label for="OrderStatus">New Order Status</label>
                     <select id ="Status">
                                 <option value="" disabled="disabled" selected="selected">Choose the New Status</option>
@@ -96,7 +96,18 @@
                                 <option value="4">On Delivery</option>
                                 <option value="5">Delivered</option>
                             </select>
-                    </div>
+                    </div> -->
+                    <form id="Status" action="/getJson" method="get">
+    <select>
+       <option value="" disabled="disabled" selected="selected">Choose the New Status</option>
+                                <option value="1">Draft</option>
+                                <option value="2">On Review</option>
+                                <option value="3">Approved</option>
+                                <option value="4">On Delivery</option>
+                                <option value="5">Delivered</option>
+    </select>
+</form>
+                    
                 </div>
                 <div class="panel-footer">
                     <div id="message" class="alert alert-info" role="alert" style="display: none;">
