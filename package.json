@@ -1,7 +1,7 @@
 {
-  "name": "phone-change",
+  "name": "Update Order Status Via other Apps",
   "version": "0.0.0",
-  "description": "Heroku Connect Sample App - Phone Change",
+  "description": "Heroku Connect - Update Order status",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
