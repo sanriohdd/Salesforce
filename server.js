@@ -15,7 +15,7 @@ app.post('/update', function(req, res) {
         if (err) console.log(err);
         conn.query(
             'UPDATE salesforce.Order SET Warna__c = $2 WHERE LOWER(OrderNumber) = LOWER($1)',
-            [req.body.OrderNumber.trim(), req.body.OrderStatus.trim()],
+            [req.body.OrderNumber.trim(), req.body.Warna__c.trim()],
             function(err, result) {
                 if (err != null || result.rowCount == 0) {
                   conn.query('INSERT INTO salesforce.Order (OrderNumber, Warna__c) VALUES ($1, $2)',
