@@ -27,7 +27,7 @@
                 var OrderStatus = $("#OrderStatus").val();
                 
 
-                if (OrderId.length == 0 || OrderStatus.value == 0) {
+                if (OrderId.length == 0 || OrderStatus.length == 0) {
                     errorMessage.text("All of the fields are required.");
                     error.show();
                 }
@@ -84,7 +84,11 @@
                         <label for="lastName">Last Name</label>
                         <input type="text" class="form-control" id="lastName" placeholder="For verification" required>
                     </div>-->
-                    <div>
+                    <div class="form-group">
+                        <label for="OrderStatus">Order Status</label>
+                        <input type="text" class="form-control" id="OrderStatus" placeholder="Input The new Order Status" required>
+                    </div>
+                    <!--<div>
                     <label for="OrderStatus">New Order Status</label>
                     <select>
                                 <option value="" disabled="disabled" selected="selected">Choose the New Status</option>
@@ -94,7 +98,7 @@
                                 <option value="4">On Delivery</option>
                                 <option value="5">Delivered</option>
                             </select>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="panel-footer">
                     <div id="message" class="alert alert-info" role="alert" style="display: none;">
