@@ -25,7 +25,7 @@
 
                 var OrderNumber = $("#OrderNumber").val();
                 //var Warna__c = $("#Warna__c").val();
-                var Status = $("#Status").val();
+                var Status = $("#StatusSelect").val();
 
                 if (OrderNumber.length == 0) {
                     errorMessage.text("All of the fields are required.");
@@ -43,7 +43,7 @@
                         dataType: "json",
                         success: function(data) {
                             $("#OrderNumber").val("");
-                            $("#Status").val("");
+                            $("#StatusSelect").val("");
                             $("#messageMessage").text("Status updated!");
                             $("#message").show();
                         },
@@ -52,7 +52,7 @@
                             error.show();
                         }
                     })
-                }console.log($("#Status").val(""));
+                }console.log($("#StatusSelect").val());
             });
         });
 
@@ -98,13 +98,13 @@
                             </select>
                     </div> -->
                     <form id="Status" action="/getJson" method="get">
-    <select>
+    <select id="StatusSelect">
        <option value="" disabled="disabled" selected="selected">Choose the New Status</option>
-                                <option value="1">Draft</option>
-                                <option value="2">On Review</option>
-                                <option value="3">Approved</option>
-                                <option value="4">On Delivery</option>
-                                <option value="5">Delivered</option>
+                                <option value="Draft">Draft</option>
+                                <option value="On Review">On Review</option>
+                                <option value="Approved">Approved</option>
+                                <option value="On Delivery">On Delivery</option>
+                                <option value="Delivered">Delivered</option>
     </select>
 </form>
                     
