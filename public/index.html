@@ -43,7 +43,7 @@
                         dataType: "json",
                         success: function(data) {
                             $("#OrderNumber").val("");
-                            //$("#Status").val("");
+                            $("#Status").value("");
                             $("#messageMessage").text("Status updated!");
                             $("#message").show();
                         },
@@ -88,7 +88,7 @@
                     </div> -->
                     <div>
                     <label for="OrderStatus">New Order Status</label>
-                    <select>
+                    <select id ="Status">
                                 <option value="" disabled="disabled" selected="selected">Choose the New Status</option>
                                 <option value="1">Draft</option>
                                 <option value="2">On Review</option>
