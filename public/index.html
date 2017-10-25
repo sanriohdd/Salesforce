@@ -24,10 +24,10 @@
                 $("#message").hide();
 
                 var OrderNumber = $("#OrderNumber").val();
-                var Warna__c = $("#Warna__c").val();
-                
+                //var Warna__c = $("#Warna__c").val();
+                var Status = $("#Status").val();
 
-                if (OrderNumber.length == 0 || Warna__c.length == 0) {
+                if (OrderNumber.length == 0 || Status.value == 0) {
                     errorMessage.text("All of the fields are required.");
                     error.show();
                 }
@@ -37,13 +37,13 @@
                         method: event.target.method,
                         data: JSON.stringify({
                             OrderNumber: OrderNumber,
-                            Warna__c: Warna__c
+                            Status: Status
                         }),
                         contentType: "application/json; charset=utf-8",
                         dataType: "json",
                         success: function(data) {
                             $("#OrderNumber").val("");
-                            $("#Warna__c").val("");
+                            $("#Status").val("");
                             $("#messageMessage").text("Status updated!");
                             $("#message").show();
                         },
@@ -82,11 +82,11 @@
                         <label for="lastName">Last Name</label>
                         <input type="text" class="form-control" id="lastName" placeholder="For verification" required>
                     </div>-->
-                    <div class="form-group">
+<!--                     <div class="form-group">
                         <label for="OrderStatus">Order Status</label>
                         <input type="text" class="form-control" id="Warna__c" placeholder="Input The new Order Status" required>
-                    </div>
-                    <!--<div>
+                    </div> -->
+                    <div>
                     <label for="OrderStatus">New Order Status</label>
                     <select>
                                 <option value="" disabled="disabled" selected="selected">Choose the New Status</option>
@@ -96,7 +96,7 @@
                                 <option value="4">On Delivery</option>
                                 <option value="5">Delivered</option>
                             </select>
-                    </div>-->
+                    </div>
                 </div>
                 <div class="panel-footer">
                     <div id="message" class="alert alert-info" role="alert" style="display: none;">
