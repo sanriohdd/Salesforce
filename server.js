@@ -14,12 +14,12 @@ app.post('/update', function(req, res) {
         // watch for any connect issues
         if (err) console.log(err);
         conn.query(
-            'UPDATE salesforce.Order SET Status = $2 WHERE LOWER(OrderNumber) = LOWER($1)',
-            [req.body.OrderNumber.trim(), req.body.Status.trim()],
+            'UPDATE salesforce.Order SET Status_of_Delivery__c = $2 WHERE LOWER(Name) = LOWER($1)',
+            [req.body.Name.trim(), req.body.Status_of_Delivery__c.trim()],
             function(err, result) {
                 if (err != null || result.rowCount == 0) {
-                  conn.query('INSERT INTO salesforce.Order (OrderNumber, Status) VALUES ($1, $2)',
-                  [req.body.OrderNumber.trim(), req.body.Status.trim()],
+                  conn.query('INSERT INTO salesforce.Order (Name, Status_of_Delivery__c) VALUES ($1, $2)',
+                  [req.body.Name.trim(), req.body.Status_of_Delivery__c.trim()],
                   function(err, result) {
                     done();
                     if (err) {
