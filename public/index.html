@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Phone Changer</title>
+    <title>Salesforce Delivery Order</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <style>
@@ -23,11 +23,11 @@
 
                 $("#message").hide();
 
-                var OrderNumber = $("#OrderNumber").val();
+                var Name = $("#Name").val();
                 //var Warna__c = $("#Warna__c").val();
-                var Status = $("#StatusSelect").val();
+                var Status_of_Delivery__c = $("#StatusSelect").val();
 
-                if (OrderNumber.length == 0) {
+                if (Name.length == 0) {
                     errorMessage.text("All of the fields are required.");
                     error.show();
                 }
@@ -36,13 +36,13 @@
                         url: event.target.action,
                         method: event.target.method,
                         data: JSON.stringify({
-                            OrderNumber: OrderNumber,
-                            Status: $("#StatusSelect").val()
+                            Name: Name,
+                            Status_of_Delivery__c: $("#StatusSelect").val()
                         }),
                         contentType: "application/json; charset=utf-8",
                         dataType: "json",
                         success: function(data) {
-                            $("#OrderNumber").val("");
+                            $("#Name").val("");
                             $("#StatusSelect").val("");
                             $("#messageMessage").text("Status updated!");
                             $("#message").show();
@@ -75,8 +75,8 @@
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
-                        <label for="OrderNumber">Order Id</label>
-                        <input type="text" class="form-control" id="OrderNumber" placeholder="For verification" required>
+                        <label for="Delivery Order">Order Id</label>
+                        <input type="text" class="form-control" id="Name" placeholder="For verification" required>
                     </div>
                     <!--<div class="form-group">
                         <label for="lastName">Last Name</label>
@@ -97,13 +97,11 @@
                                 <option value="5">Delivered</option>
                             </select>
                     </div> -->
-                    <form id="Status" action="/getJson" method="get">
+                    <form id="Status_of_Delivery__c" action="/getJson" method="get">
     <select id="StatusSelect">
        <option value="" disabled="disabled" selected="selected">Choose the New Status</option>
                                 <option value="Draft">Draft</option>
-                                <option value="On Review">On Review</option>
-                                <option value="Approved">Approved</option>
-                                <option value="On Delivery">On Delivery</option>
+                                <option value="On Progress">On Progress</option>
                                 <option value="Delivered">Delivered</option>
     </select>
 </form>
