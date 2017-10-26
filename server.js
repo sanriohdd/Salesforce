@@ -14,7 +14,7 @@ app.post('/update', function(req, res) {
         // watch for any connect issues
         if (err) console.log(err);
         conn.query(
-            'UPDATE salesforce.Order SET Status_of_Delivery__c = $2 WHERE LOWER(Name) = LOWER($1)',
+            'UPDATE salesforce.Delivery_Order__c SET Status_of_Delivery__c = $2 WHERE LOWER(Name) = LOWER($1)',
             [req.body.Name.trim(), req.body.Status_of_Delivery__c.trim()],
             function(err, result) {
                 if (err != null || result.rowCount == 0) {
