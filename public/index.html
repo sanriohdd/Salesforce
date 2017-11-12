@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Salesforce Delivery Order</title>
+    <title>Phone Changer</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <style>
@@ -23,12 +23,12 @@
 
                 $("#message").hide();
 
-                var Name = $("#Name").val();
-                var KotamadyaOrigin__c = $("#KotamadyaOrigin__c").val();
-                //var Warna__c = $("#Warna__c").val();
-                //var Status_of_Delivery__c = $("#StatusSelect").val();
+                var firstName = $("#firstName").val();
+                var lastName = $("#lastName").val();
+                var email = $("#email").val();
+                var phone = $("#phone").val();
 
-                if (Name.length == 0) {
+                if (firstName.length == 0 || lastName.length == 0 || email.length == 0 || phone.length == 0) {
                     errorMessage.text("All of the fields are required.");
                     error.show();
                 }
@@ -37,16 +37,19 @@
                         url: event.target.action,
                         method: event.target.method,
                         data: JSON.stringify({
-                            Name: Name,
-                            KotamadyaOrigin__c: KotamadyaOrigin__c,
-                            //Status_of_Delivery__c: $("#StatusSelect").val()
+                            firstName: firstName,
+                            lastName: lastName,
+                            email: email,
+                            phone: phone
                         }),
                         contentType: "application/json; charset=utf-8",
                         dataType: "json",
                         success: function(data) {
-                            $("#Name").val("");
-                            $("#KotamadyaOrigin__c").val("");
-                            $("#messageMessage").text("Status updated!");
+                            $("#firstName").val("");
+                            $("#lastName").val("");
+                            $("#email").val("");
+                            $("#phone").val("");
+                            $("#messageMessage").text("Record updated!");
                             $("#message").show();
                         },
                         error: function(err) {
@@ -54,7 +57,7 @@
                             error.show();
                         }
                     })
-                }console.log($("#KotamadyaOrigin__c").val());
+                }
             });
         });
 
@@ -64,7 +67,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">Order Status Update</a>
+                <a class="navbar-brand" href="/">Phone Number Changer</a>
             </div>
         </div>
     </nav>
@@ -73,49 +76,25 @@
         <form id="phoneChangerForm" action="/update" method="post" style="width: 400px">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">New Route Request </h3>
+                    <h3 class="panel-title">Update Your Phone Number</h3>
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
-                        <label for="Delivery Order">New Route ID</label>
-                        <input type="text" class="form-control" id="Name" placeholder="For verification" required>
+                        <label for="firstName">First Name</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="For verification" required>
                     </div>
                     <div class="form-group">
-                        <label for="Delivery Order">Kotamadya Origin</label>
-                        <output type="text" class="form-control" id="KotamadyaOrigin__c" placeholder="For verification" required>
-                    </div>
-                    
-                    <!--<div class="form-group">
                         <label for="lastName">Last Name</label>
                         <input type="text" class="form-control" id="lastName" placeholder="For verification" required>
-                    </div>-->
-<!--                     <div class="form-group">
-                        <label for="OrderStatus">Order Status</label>
-                        <input type="text" class="form-control" id="Warna__c" placeholder="Input The new Order Status" required>
-                    </div> -->
-<!--                     <div>
-                    <label for="OrderStatus">New Order Status</label>
-                    <select id ="Status">
-                                <option value="" disabled="disabled" selected="selected">Choose the New Status</option>
-                                <option value="1">Draft</option>
-                                <option value="2">On Review</option>
-                                <option value="3">Approved</option>
-                                <option value="4">On Delivery</option>
-                                <option value="5">Delivered</option>
-                            </select>
                     </div>
-                    
-                    <form id="Status_of_Delivery__c" action="/getJson" method="get">
-                        <label for="Delivery Order">Delivery Order Status</label>
-                            <select id="StatusSelect" class="form-control">
-                                <option value="" disabled="disabled" selected="selected">Choose the New Status</option>
-                                <option value="Draft">Draft</option>
-                                <option value="On Progress">On Progress</option>
-                                <option value="Delivered">Delivered</option>
-    </select>
-</form> -->
-                        
-                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="For verification" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" class="form-control" id="phone" placeholder="New Phone Number" required>
+                    </div>
                 </div>
                 <div class="panel-footer">
                     <div id="message" class="alert alert-info" role="alert" style="display: none;">
@@ -127,7 +106,7 @@
                         <span class="sr-only">Error:</span>
                         <span id="errorMessage"></span>
                     </div>
-                    <button type="submit" class="btn btn-primary">Update Order Status</button>
+                    <button type="submit" class="btn btn-primary">Update Phone Number</button>
                 </div>
             </div>
         </form>
