@@ -24,7 +24,8 @@
                 $("#message").hide();
 
                 var Name = $("#Name").val();
-                var ProvinsiOrigin__c = $("#ProvinsiOrigin__c").val();
+                var CodeOrigin__c = $("#CodeOrigin__c").val();
+                var CodeDestination__c = $("#CodeDestination__c").val();
 
                 if (Name.length == 0) {
                     errorMessage.text("All of the fields are required.");
@@ -42,7 +43,8 @@
                         dataType: "json",
                         success: function(data) {
                             $("#Name").val("");
-                            $("#ProvinsiOrigin__c").val("");
+                            $("#CodeOrigin__c").val("");
+                            $("#CodeDestination__c").val("");
                             $("#messageMessage").text("Record updated!");
                             $("#message").show();
                         },
@@ -78,8 +80,12 @@
                         <input type="text" class="form-control" id="Name" placeholder="For verification" required>
                     </div>
                     <div class="form-group">
-                        <label for="lastName">Provinsi Origin</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="For verification" required>
+                        <label for="lastName">Code Origin</label>
+                        <input type="text" class="form-control" id="CodeOrigin__c" placeholder="New Code" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Code Destination</label>
+                        <input type="text" class="form-control" id="CodeDestination__c" placeholder="New Code" required>
                     </div>
                     </div>
                 <div class="panel-footer">
