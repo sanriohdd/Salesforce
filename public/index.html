@@ -24,8 +24,9 @@
                 $("#message").hide();
 
                 var Name = $("#Name").val();
+                var KotamadyaOrigin__c = $("#KotamadyaOrigin__c").val();
                 //var Warna__c = $("#Warna__c").val();
-                var Status_of_Delivery__c = $("#StatusSelect").val();
+                //var Status_of_Delivery__c = $("#StatusSelect").val();
 
                 if (Name.length == 0) {
                     errorMessage.text("All of the fields are required.");
@@ -37,13 +38,14 @@
                         method: event.target.method,
                         data: JSON.stringify({
                             Name: Name,
-                            Status_of_Delivery__c: $("#StatusSelect").val()
+                            KotamadyaOrigin__c: KotamadyaOrigin__c,
+                            //Status_of_Delivery__c: $("#StatusSelect").val()
                         }),
                         contentType: "application/json; charset=utf-8",
                         dataType: "json",
                         success: function(data) {
                             $("#Name").val("");
-                            $("#StatusSelect").val("");
+                            $("#KotamadyaOrigin__c").val("");
                             $("#messageMessage").text("Status updated!");
                             $("#message").show();
                         },
@@ -52,7 +54,7 @@
                             error.show();
                         }
                     })
-                }console.log($("#StatusSelect").val());
+                }console.log($("#KotamadyaOrigin__c").val());
             });
         });
 
@@ -71,12 +73,17 @@
         <form id="phoneChangerForm" action="/update" method="post" style="width: 400px">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Order Status Update</h3>
+                    <h3 class="panel-title">New Route Request </h3>
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
                         <label for="Delivery Order">Delivery Order Number</label>
                         <input type="text" class="form-control" id="Name" placeholder="For verification" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Delivery Order">Delivery Order Number</label>
+                        <output type="text" class="form-control" id="KotamadyaOrigin__c" placeholder="For verification" required>
+                    </div>
                     
                     <!--<div class="form-group">
                         <label for="lastName">Last Name</label>
@@ -96,7 +103,7 @@
                                 <option value="4">On Delivery</option>
                                 <option value="5">Delivered</option>
                             </select>
-                    </div> -->
+                    </div>
                     
                     <form id="Status_of_Delivery__c" action="/getJson" method="get">
                         <label for="Delivery Order">Delivery Order Status</label>
@@ -106,8 +113,8 @@
                                 <option value="On Progress">On Progress</option>
                                 <option value="Delivered">Delivered</option>
     </select>
-</form>
-                        </div>
+</form> -->
+                        
                     
                 </div>
                 <div class="panel-footer">
