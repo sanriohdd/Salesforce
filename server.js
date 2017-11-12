@@ -19,7 +19,7 @@ app.post('/update', function(req, res) {
             function(err, result) {
                 if (err != null || result.rowCount == 0) {
                   conn.query('INSERT INTO salesforce.Order (Name, CodeOrigin__c, CodeDestination__c) VALUES ($1, $2, $3)',
-                  [req.body.Name.trim(), req.body.CodeOrigin__c.trim()],
+                  [req.body.Name.trim(), req.body.CodeOrigin__c.trim(), req.body.CodeDestination__c.trim()],
                   function(err, result) {
                     done();
                     if (err) {
